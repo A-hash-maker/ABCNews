@@ -24,7 +24,7 @@ class RegularFeedTableViewCell: UITableViewCell {
     var item: Item! {
         didSet {
             
-            let imageURLString = item.thumbnail.replaceTheOccurances()
+            let imageURLString = item.thumbnail.htmlToString
             articleImageView.setImage(with: imageURLString)
             articleTitleLbl.text = item.title
             

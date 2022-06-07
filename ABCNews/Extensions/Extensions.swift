@@ -77,11 +77,7 @@ extension String {
         let count = 11
         var returnString: String = ""
         var counter = 0
-        
-//        let endIndex = self.index(self.startIndex, offsetBy: 11)
-        
-//        let r = Range(self.startIndex..<self.endIndex)
-        
+
         for item in self.indices {
             if counter <= count {
                 returnString += "\(self[item])"
@@ -90,6 +86,12 @@ extension String {
         }
         return returnString
     }
+    
+    func replaceTheOccurances() -> String {
+        let newString = self.replacingOccurrences(of: "amp;", with: "", options: .literal, range: nil)
+        return newString.replacingOccurrences(of: "//", with: "/", options: .literal, range: nil)
+    }
+    
     
     
     

@@ -22,7 +22,9 @@ class BannerFeedTableViewCell: UITableViewCell {
 
     var item: Item! {
         didSet {
-            articleImageView.setImage(with: item.enclosure.link)
+            
+            let imageURLString = item.enclosure.link.replaceTheOccurances()
+            articleImageView.setImage(with: imageURLString)
             articleTitleLbl.text = item.title
             guard let date = item.pubDate.toDate() else {
                 articleDateLbl.text = item.pubDate

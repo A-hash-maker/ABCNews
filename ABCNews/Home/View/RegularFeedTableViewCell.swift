@@ -23,7 +23,9 @@ class RegularFeedTableViewCell: UITableViewCell {
 
     var item: Item! {
         didSet {
-            articleImageView.setImage(with: item.thumbnail)
+            
+            let imageURLString = item.thumbnail.replaceTheOccurances()
+            articleImageView.setImage(with: imageURLString)
             articleTitleLbl.text = item.title
             
             guard let date = item.pubDate.toDate() else {
